@@ -4,6 +4,9 @@
     --purple: #A478E8; 
     --white: #FFF; 
     --gray: #737373; 
+    --orange: #E74040; 
+    --blue: #2965F1; 
+    --yellow:#FFDE25; 
     --bg01: #EDEFF8;
     --main-padding: 15px 25px;
     --main-box-shadow: 0px 4px 5.9px 0px rgba(81, 108, 247, 0.25);
@@ -111,34 +114,52 @@ header {
     width: 328px;
     padding: 35px 40px;
     flex-direction: column;
-    align-items: flex-start;
     gap: 20px;
     text-align: center;
     border-radius: 8px;
 }
 
 hr {
-    width: 50%;
+    margin-left: 33%;
+    width: 35%;
     height: 3px;
-    background-color: var(--gray);
+    border: none;
   }
 
-  .misTecnologiasFavoritas  .title {
-    text-align: center;
-    margin-top: 20px;
+  .line1 {
+    background-color: var(--orange);
 }
 
-  .misTecnologiasFavoritas .title h2 {
-    position: relative;
-    display: inline-block;
-    font-size: 2em;
-    margin: 0;
+.line2 {
+    background-color: var(--blue);
 }
 
-   .misTecnologiasFavoritas .title h2::before {
-    content:  url(../images/vignette.png);
-    width: 30px;
-    position: absolute;
-    left: -30px; /* Ajusta la posición según sea necesario */
-    top: 50%;
+.line3 {
+    background-color: var(--yellow);
 }
+
+
+.column {
+    float: left;
+    width: 50%;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /*RESPONSIVE*/
+  @media only screen and (max-width: 768px) {
+    .column {
+        float:inline-start;
+        width: 100%;
+      }
+      
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+  }

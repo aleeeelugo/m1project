@@ -39,28 +39,58 @@
 
     <section class="misTecnologiasFavoritas">
         <div class="tltle">
-            <h2>Mis Tecnologías favoritas</h2>
+            <h2><span class="vignette"><img src="images/vignette.png"></span>Mis Tecnologías favoritas</h2>
         </div>
 
         <div class="cards">
             <div class="card">
                 <img src="images/icon-html.png">
                 <h3>HTML</h3>
-                <hr class="line"></hr>
+                <hr class="line1"></hr>
             </div>
 
             <div class="card">
                 <img src="images/icon-css.png">
                 <h3>CSS</h3>
-                <hr class="line"></hr>
+                <hr class="line2"></hr>
             </div>
 
             <div class="card">
                 <img src="images/icon-js.png">
                 <h3>JS</h3>
-                <hr class="line"></hr>
+                <hr class="line3"></hr>
             </div>
         </div>
+    </section>
+
+    <section class="misActividadesFavoritas row">
+       <div class="formularioToDo column">
+        <div class="tltle">
+            <h2><span class="vignette"><img src="images/vignette.png"></span>Mis Actividades favoritas</h2>
+        </div>
+            <form class="formToDo" id="formToDo" action="">
+                <input type="text" placeholder="Actividad favorita" id="inpt_actividad">
+                <input type="text" placeholder="Descripción" id="inpt_descripcion">
+                <input type="text" placeholder="Link de la imagen" id="inpt_imagen">
+                <input type="submit" value="Agregar actividad">
+            </form>
+       </div>
+
+       <div class="listToDo column">
+        <div class="tltle">
+            <h2><span class="vignette"><img src="images/vignette.png"></span>Mi lista</h2>
+        </div>
+
+        <div class="cardList">
+            <img src="images/image-placeholder-todo.png">
+            <h6><span class="check"><img src="images/icon-check.png"></span>Comer</h6>
+            <p class="descripcion">Comer milanesas </p>
+            <div class="botones">
+                <a href="#"><img src="images/icon-list.png"></a>
+                <a href="#"><img src="images/icon-trash.png"></a>
+            </div>
+        </div>
+       </div>
     </section>
 </body>
 </html>
