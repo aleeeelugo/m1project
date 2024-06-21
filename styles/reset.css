@@ -279,7 +279,7 @@ input[type="submit"]:hover {
   }
 
   /*RESPONSIVE*/
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1450px) {
     .column {
         float:inline-start;
         width: 100%;
@@ -305,25 +305,20 @@ input[type="submit"]:hover {
       }
 
       .sobreMi {
-        text-align: center;
-        padding: 25px;
         width: 100%;
         display: flex;
-        flex-wrap: wrap;
-      }
-
-      .sobreMi .left {
-        max-width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 115px;
+    }
+    
+    .sobreMi .left {
+        max-width: 50%;
     }
     
     .sobreMi .right {
         max-width: 100%;
         height: auto;
-    }
-
-    .sobreMi .right img {
-        max-width: 80%;
-        width: 100%;
     }
 
       .misTecnologiasFavoritas .cards{
@@ -347,4 +342,29 @@ input[type="submit"]:hover {
         display: block;
       }
 
+  }
+
+  @media only screen and (max-width: 768px) {
+
+    .sobreMi {
+        text-align: center;
+        padding: 25px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
+    .sobreMi .left {
+        max-width: 100%;
+    }
+    
+    .sobreMi .right {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .sobreMi .right img {
+        max-width:100%;
+        width: 100%;
+    }
   }
