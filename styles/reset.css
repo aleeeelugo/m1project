@@ -4,6 +4,7 @@
     --purple: #A478E8; 
     --white: #FFF; 
     --gray: #737373; 
+    --grayLight: #E6E6E6; 
     --orange: #E74040; 
     --blue: #2965F1; 
     --yellow:#FFDE25; 
@@ -27,6 +28,7 @@
     align-items: center;
     padding: 10px;
   }
+
 
 ul {
     list-style: none;
@@ -63,6 +65,7 @@ header {
 }
 
 .sobreMi {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -98,6 +101,10 @@ header {
     text-align: center;
     padding: 50px;
 
+}
+
+.misActividadesFavoritas h2 {
+    text-align: center;
 }
 
 .misTecnologiasFavoritas .cards {
@@ -138,7 +145,6 @@ hr {
     background-color: var(--yellow);
 }
 
-
 .column {
     float: left;
     width: 50%;
@@ -148,6 +154,128 @@ hr {
     content: "";
     display: table;
     clear: both;
+  }
+
+  .misActividadesFavoritas h2 {
+    text-align: center;
+
+  }
+
+  .formularioToDo {
+    padding: 20px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--grayLight);
+    background: #FFF;
+  }
+
+  input[type="text"]:hover,
+  textarea:hover {
+    border: 1px solid var(--main-color);
+  }
+
+
+  input[type="text"]:focus,
+  textarea:focus {
+    border: 1px solid var(--main-color) !important;
+    outline: none;
+  }
+  
+  ::placeholder {
+    color: var(--gray); 
+  }
+  
+  textarea::placeholder {
+    color: var(--gray); 
+  }
+
+  input[type="submit"] {
+    color: var(--white);
+    background-color: var(--main-color);
+    /*width: 100%; */
+    padding: 15px;
+    margin: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--main-box-shadow);
+}
+
+input[type="submit"]:hover {
+    background-color: var(--purple);
+
+}
+
+  .listToDo {
+    padding: 20px;
+    background-color: var(--bg01);
+  }
+
+  .misActividadesFavoritas {
+    display: flex;
+    align-items: center;
+  }
+
+  .formularioToDo, .cardList {
+    padding: 20px;
+  }
+
+  .misActividadesFavoritas h2 {
+    color: var(--main-color);
+  }
+
+  .cardList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
+}
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid var(--grayLight);
+    background: var(--white);
+    box-shadow: 0px 4px 4px 0px rgba(195, 194, 194, 0.25);
+  }
+
+  .card .imgActivity {
+    width: 200px;
+  }
+
+  .card .botones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .check{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card h3, p {
+    color: var(--gray)
   }
 
   /*RESPONSIVE*/
@@ -162,4 +290,61 @@ hr {
         display: table;
         clear: both;
       }
+
+      nav {
+        width: 100%;
+      }
+
+      nav .logo {
+        width: 100%;
+      }
+
+      nav li {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .sobreMi {
+        text-align: center;
+        padding: 25px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .sobreMi .left {
+        max-width: 100%;
+    }
+    
+    .sobreMi .right {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .sobreMi .right img {
+        max-width: 80%;
+        width: 100%;
+    }
+
+      .misTecnologiasFavoritas .cards{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .cardList {
+        width: 100%;
+        display: flex;
+        justify-content: center;  
+      }
+
+    input[type="submit"] {
+        margin: auto 0;
+        width: 100%;
+      }
+
+      .misActividadesFavoritas {
+        display: block;
+      }
+
   }
