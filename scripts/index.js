@@ -202,6 +202,3 @@ function handlerForm(repository, containerId){
     handlerForm(repository, 'cardList');
 
 }); 
-
-
-
