@@ -44,33 +44,23 @@ class Repository {
 
 }
 
-
+/*
 const activityList = new Repository(); 
 
 activityList.createActivity("001", "Ver series", "Lorem Ipsum", "www.pexels.com");
 activityList.createActivity("002", "Hacer ejercicio", "Lorem Ipsum", "www.pexels.com");
-activityList.createActivity("003", "Comer", "Lorem Ipsum", "www.pexels.com");
+activityList.createActivity("003", "Comer", "Lorem Ipsum", "www.pexels.com"); */
 
 
-console.log(activityList.getAllActivities());
+/* console.log(activityList.getAllActivities());
 console.log(activityList.deleteActivity("003"));
 
 activityList.createActivity("003", "Dibujar", "Lorem Ipsum", "www.pexels.com");
-console.log(activityList.getAllActivities());
+console.log(activityList.getAllActivities()); */
 
-//Función que convierte instancia de Activity en HTML 
-const formToDo = document.getElementById("formToDo");
 
-formToDo.addEventListener("submit",createCard);
-
-function createCard(e){
-    e.preventDefault(); 
-    //const {id, title, description, imgUrl} = obj;
-
-    //Llamar campos del form 
-    const inptActividad = document.getElementById("inpt_actividad"); 
-    const descriptionField = document.getElementById("descriptionField"); 
-    const inptImagen = document.getElementById("inpt_imagen");  
+function createActivityCard(activity){
+    const { title, description, imgUrl} = activity;
 
     //Crear elemento card 
     const card = document.createElement("div");
@@ -80,7 +70,7 @@ function createCard(e){
     imgActivity.classList.add("imgActivity");
 
     const h3 = document.createElement("h3");
-
+   
     const spanCheck = document.createElement("span");
     spanCheck.classList.add("check"); 
     const imgIconCheck = document.createElement("img");
@@ -89,6 +79,7 @@ function createCard(e){
     
     const p = document.createElement("p"); 
     p.classList.add("descripcion");
+ 
 
     const divBtn = document.createElement("div"); 
     divBtn.classList.add("botones");
@@ -105,6 +96,11 @@ function createCard(e){
     imgIconList.src="images/icon-list.png";
     imgIconTrash.src="images/icon-trash.png";
 
+    //Asignar valores innerHTML
+    h3.innerHTML=title;
+    p.innerHTML=description; 
+    imgActivity.src=imgUrl;
+
     //Agregar los elementos a card
     card.appendChild(imgActivity); 
     h3.appendChild(spanCheck); 
@@ -118,40 +114,94 @@ function createCard(e){
     divBtn.appendChild(btnIconTrash);
     card.appendChild(divBtn);
 
-    //Agregar card a la lista
-    const cardList = document.querySelector(".cardList");
-    cardList.appendChild(card);  
+    
+console.log(card);
+return card; 
+
+};
+
+//Usar la función con una instancia de Activity
+const myActivity = new Activity; 
+const activityCard = createActivityCard(myActivity); 
+
+
+function renderAllActivities(repository, containerID){
+//Seleccionar el contenedor de cards
+ const container = document.getElementById(containerID);
+ 
+//Vaciar el contenedor de cards 
+ container.innerHTML="";  
+
+ //Obtener el listado de actividades completo
+ const activities = repository.getAllActivities(); 
+
+//Mapear el listado de actividades para convertirlas en elementos HTML 
+const activityCards = activities.map(createActivityCard); 
+
+//Appendear todos los elementos HTML (las cards) dentro del contenedor  
+activityCards.forEach((card)=>{
+    container.appendChild(card);
+})
+
+
+}
+
+//Crear instancia de Repositoriy
+const activityList = new Repository(); 
+
+//Crear algunas actividades 
+activityList.createActivity("001", "Ver series", "Lorem Ipsum", "www.pexels.com");
+activityList.createActivity("002", "Hacer ejercicio", "Lorem Ipsum", "www.pexels.com");
+activityList.createActivity("003", "Comer", "Lorem Ipsum", "www.pexels.com");
+
+//Llamar a la función para renderizar todas las actividades en el contenedor  con la clase cardList 
+renderAllActivities(activityList, "cardList"); 
+
+
+const formToDo = document.getElementById("formToDo");
+
+//formToDo.addEventListener("submit",handlerForm);
+
+function handlerForm(repository, containerId){
+   
+    //Seleccionar los fields del form 
+    const inptActividad = document.getElementById("inpt_actividad"); 
+    const descriptionField = document.getElementById("descriptionField"); 
+    const inptImagen = document.getElementById("inpt_imagen");  
+
+    //Tomar los valores ingresados en los inputs
+    const title = inptActividad.value; 
+    const description = descriptionField.value; 
+    const imgUrl  = inptImagen.value; 
 
 
     //Validación de datos 
-    if(inptActividad.value !== "" && descriptionField.value !== "" ){
-        h3.textContent=inptActividad.value; 
-        p.textContent=descriptionField.value; 
-        imgActivity.src="images/image-placeholder-todo.png";
-
-        //Limpiar campos
-        inptActividad.value=""; 
-        descriptionField.value=""; 
-        inptImagen.value="";
-
-    } else {
+    if(!title || !description || !imgUrl  ){
         alert("No puedes enviar un formulario vacío o completa todos los campos.");
-        card.remove();
-    }
+        return; 
+    } 
+
+    // Llamar al método correspondiente de la instancia de Repository para crear una nueva actividad
+        const id = repository.getAllActivities().length + 1; // Asignar un ID único basado en la longitud actual
+        repository.createActivity(id, title, description, imgUrl);
+
+    // Invocar la función que implementamos anteriormente para "refrescar" el contenedor de actividades
+        renderAllActivities(repository, containerId);
+
+    // Limpiar los inputs después de agregar la actividad
+    inptActividad.value = '';
+    descriptionField.value = '';
+    inptImagen.value = '';
+
+}
+  // Ejemplo de uso: agregar un event listener al botón
+    const repository = new Repository();
+
+    document.getElementById('addActivityButton').addEventListener('click', (e) => {
+    e.preventDefault(); 
+    handlerForm(repository, 'cardList');
+
+}); 
 
 
-    /*
-      <div class="card">
-                <img class="imgActivity" src="images/image-placeholder-todo.png">
-                <h3><span class="check"><img class="icon-chek" src="images/icon-check.png"></span>Comer</h3>
-                <p class="descripcion">Comer milanesas </p>
-                <div class="botones">
-                    <a class="icon-edit" href="#"><img src="images/icon-list.png"></a>
-                    <a class="icon-trash" href="#"><img src="images/icon-trash.png"></a>
-                </div>
-            </div>
-    */
-console.log(card);
-
-};
 
