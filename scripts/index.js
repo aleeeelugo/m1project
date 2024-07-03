@@ -202,3 +202,5 @@ function handlerForm(repository, containerId){
     handlerForm(repository, 'cardList');
 
 }); 
+
+module.exports = {Activity, Repository};
