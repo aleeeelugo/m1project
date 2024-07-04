@@ -1,4 +1,4 @@
-
+//Controllers.js
 //Crear card desde js
 function createActivityCard(activity){
     const { title, description, imgUrl} = activity;
@@ -22,7 +22,7 @@ function createActivityCard(activity){
     p.classList.add("descripcion");
  
 
-    const divBtn = document.createElement("div"); 
+   /*  const divBtn = document.createElement("div"); 
     divBtn.classList.add("botones");
 
     const btnIconEdit = document.createElement("a"); 
@@ -35,12 +35,17 @@ function createActivityCard(activity){
     const imgIconTrash = document.createElement("img"); 
 
     imgIconList.src="images/icon-list.png";
-    imgIconTrash.src="images/icon-trash.png";
+    imgIconTrash.src="images/icon-trash.png"; */
 
     //Asignar valores innerHTML
     h3.innerHTML=title;
     p.innerHTML=description; 
-    imgActivity.src=imgUrl;
+     // Verificar que imgUrl tenga un valor válido
+     if (imgUrl) {
+        imgActivity.src = imgUrl;
+    } else {
+        imgActivity.src = "images/image-placeholder-todo.png"; // Ruta a una imagen predeterminada
+    }
 
     //Agregar los elementos a card
     card.appendChild(imgActivity); 
@@ -48,12 +53,13 @@ function createActivityCard(activity){
     spanCheck.appendChild(imgIconCheck);
     card.appendChild(h3);
     card.appendChild(p);
+     /* 
     card.appendChild(divBtn);
-    btnIconEdit.appendChild(imgIconList);
+   btnIconEdit.appendChild(imgIconList);
     btnIconTrash.appendChild(imgIconTrash);
     divBtn.appendChild(btnIconEdit);
     divBtn.appendChild(btnIconTrash);
-    card.appendChild(divBtn);
+    card.appendChild(divBtn); */
 
     
 console.log(card);
