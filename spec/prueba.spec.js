@@ -6,12 +6,11 @@
 - Debería tener un método llamado getAllActivities 
 - Debería tener un método llamado createActivity
 - Debería tener un método llamado deleteActivity
-- El método createActivity debería poder agregar un elemento de la lista
-- El método deleteActivity debería poder eliminar un elemento de la lista
 
 */
 
 const {Activity, Repository, activityList} = require("../scripts/models");
+
 
 
 //Describe sirve para unificar varios test - String
@@ -58,7 +57,7 @@ describe("Test de createActivity", function () {
   //It define que será y se llama a un callback 
   it("Debería tener un método llamado createActivity", function () {
     //Expect y Matcher
-    expect(activityList.createActivity).toBeDefined(); //Verificar que texista el método
+    expect(activityList.createActivity).toBeDefined(); //Verificar que exista el método
   });
 });
 
@@ -67,7 +66,7 @@ describe("Test de deleteActivity", function () {
   //It define que será y se llama a un callback 
   it("Debería tener un método llamado deleteActivity", function () {
     //Expect y Matcher
-    expect(activityList.deleteActivity).toBeDefined(); //Verificar que texista el método
+    expect(activityList.deleteActivity).toBeDefined(); //Verificar que exista el método
   });
 });
 
